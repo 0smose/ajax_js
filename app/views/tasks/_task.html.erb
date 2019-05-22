@@ -1,4 +1,4 @@
 
-<li class="animat"><%= task.title %> to read: <%= task.deadline.strftime('%D') %> <%= link_to task_path(id: task.id), method: :delete, remote:true,  data: { confirm: 'Are you sure?' }  do %>
+<li class="animat" id="<%=task.id%>"><%= task.title %> to read: <%= task.deadline.strftime('%D') %> <%= link_to task_path(id: @task.id), method: :delete, remote: true,  data: { confirm: 'Are you sure?' }  do %>
           <i class="fas fa-dumpster"></i>
         <% end %></li>
