@@ -8,14 +8,23 @@
     
     <li><%= category.title  %></li>
     <div class="card">
-      <ul id= "<%=category.title%>">
+      <ul class="<%=category.title%>">
         <% category.tasks.each do |task|  %>
         
-        <li>
+        <li id="<%=task.id%>">
          <%= task.title  %> 
          <% unless task.deadline.nil? %>
          , to read: <%= task.deadline.strftime('%D')  %>
          <% end %>
+         <%= link_to task_path(id: task.id), method: :delete, remote:true,  data: { confirm: 'Are you sure?' }  do %>
+          <i class="fas fa-dumpster"></i>
+        <% end %>
+    
+
+     
+ 
+
+         
        </li>
        <% end %>
      </ul>

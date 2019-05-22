@@ -1,4 +1,16 @@
-alert("le fichier JS est exécuté!")
+alert("le fichier JS est exécuté!");
 
-document.getElementById("<%=@category.title%>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
+$(document).ready(function() {
+
+$(".animat").last().hide();
+$(".animat").last().fadeIn(3000);
+
+
+});
+
+
+
+document.getElementsByClassName("<%=@category.title%>")[0].insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
+
+
 
