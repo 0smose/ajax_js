@@ -70,3 +70,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #personnal gems
 gem 'jquery-rails'
+
+gem 'table_print'

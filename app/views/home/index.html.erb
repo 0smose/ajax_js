@@ -16,6 +16,8 @@
          <% unless task.deadline.nil? %>
          , to read: <%= task.deadline.strftime('%D')  %>
          <% end %>
+          <%= check_box_tag :name, 1, false , data: { remote: true, url: task_path(task.id), params: { id: task.id, status: true}.to_param, method: "put" }%>
+
          <%= link_to task_path(id: task.id), method: :delete, remote:true,  data: { confirm: 'Are you sure?' }  do %>
           <i class="fas fa-dumpster"></i>
         <% end %>

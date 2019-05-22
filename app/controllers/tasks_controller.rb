@@ -29,8 +29,16 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to tasks_path
+    if params[:name] == "1"
+      @task.update(status: true)
+    else 
+      @task.update(status: false)
+    end 
+
+     respond_to do |format|
+      format.html { redirect_to tasks_path }
+      format.js { }
+    end  
     flash[:notice] = "Task edited"
   end
 
@@ -53,7 +61,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(:title, :deadline, :description)
+    params.permit(:title, :deadline, :description, :name, :status, :id)
   end
 
   def category_params
